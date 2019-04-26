@@ -25,6 +25,7 @@ namespace AshLauncher
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string result = ofd.FileName;
+                richTextBox1.Text += result + '\n';
 
                 Process.Start(result);
             }
