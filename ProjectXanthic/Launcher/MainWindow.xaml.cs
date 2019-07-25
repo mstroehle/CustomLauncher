@@ -27,10 +27,12 @@ namespace Launcher
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
+			debugTextBox.AppendText(this.Width + ":" + this.Height + '\n');
+
 			for (int i = 0; i < 30; i++)
 			{
 				Button button = new Button();
-				button.Width = 150;
+				button.Width = 300;
 				button.Height = 38;
 				button.Content = "Button " + i;
 				button.HorizontalAlignment = HorizontalAlignment.Left;

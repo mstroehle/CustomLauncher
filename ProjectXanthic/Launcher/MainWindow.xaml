@@ -5,21 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Launcher"
         mc:Ignorable="d"
-        Title="Topaz Launcher" Height="450" Width="800">
-    <Grid x:Name="MainGrid">
-        <Button x:Name="AddButtonTest" Content="Add button" HorizontalAlignment="Left" Margin="682,24,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="23"/>
-        <DockPanel x:Name="DockPanelProgramList" HorizontalAlignment="Left" LastChildFill="False" VerticalAlignment="Top" Width="150" Height="409" Background="#FFDA1919"/>
-        <RichTextBox x:Name="DebugTextBox" HorizontalAlignment="Left" Height="300" Margin="621,80,0,0" VerticalAlignment="Top" Width="136">
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <ScrollViewer x:Name="ScrollPanelProgramList" HorizontalAlignment="Left" Height="380" VerticalAlignment="Top" Width="150" Background="#FFA92EE6" CanContentScroll="True" VerticalScrollBarVisibility="Disabled">
-            <StackPanel x:Name="StackPanelProgramList" HorizontalAlignment="Left" Height="380" VerticalAlignment="Top" Width="150" Background="#FF507FCF"/>
-        </ScrollViewer>
-        <Button x:Name="ButtonAddToProgramList" Content="+" HorizontalAlignment="Left" Margin="0,380,0,0" VerticalAlignment="Top" Width="150" Height="34" IsCancel="True" FontSize="24" FontWeight="Bold"/>
+        Title="Topaz Launcher" Width="1440" Height="900" MinHeight="600" MinWidth="1024" MaxHeight="900" MaxWidth="1440">
+	<Grid x:Name="MainGrid">
 
-    </Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition MinHeight="40" Height="*"/>
+			<RowDefinition MinHeight="40" Height="60"/>
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition MinWidth="300" Width="auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<DockPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="809" LastChildFill="False" MinWidth="40" Width="300" Background="Aqua">
+			<ScrollViewer Height="810" VerticalAlignment="Top" Width="340" CanContentScroll="True">
+				<StackPanel x:Name="StackPanelProgramList" HorizontalAlignment="Left" Height="809" VerticalAlignment="Top" Width="300" Background="GreenYellow"/>
+
+			</ScrollViewer>
+		</DockPanel>
+		<RichTextBox x:Name="debugTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="384" Margin="533,48,0,0" VerticalAlignment="Top" Width="159">
+			<FlowDocument>
+				<Paragraph>
+					<Run Text="RichTextBox"/>
+				</Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+		<Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="533,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+		<Button x:Name="ButtonAddProgramToList" Content="Button" Height="60" VerticalAlignment="Top" Grid.Row="1" Click="Button_Click"/>
+		<Viewbox Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="406,83,0,0" VerticalAlignment="Top" Width="100"/>
+		<Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="25" Grid.Column="1" Margin="389,220,0,0"/>
+
+		<StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="303" Margin="547,496,0,0" VerticalAlignment="Top" Width="342">
+			<Viewbox HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="300">
+				<Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="403" Height="68"/>
+			</Viewbox>
+		</StackPanel>
+
+
+	</Grid>
 </Window>
