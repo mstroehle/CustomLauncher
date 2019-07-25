@@ -27,18 +27,23 @@ namespace Launcher
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			debugTextBox.AppendText(this.Width + ":" + this.Height + '\n');
-
 			for (int i = 0; i < 30; i++)
 			{
 				Button button = new Button();
 				button.Width = 300;
-				button.Height = 38;
+				button.Height = 89.88;
 				button.Content = "Button " + i;
 				button.HorizontalAlignment = HorizontalAlignment.Left;
-				
+
+				button.Click += new RoutedEventHandler(Click_Test);
+
 				StackPanelProgramList.Children.Add(button);
 			}
+		}
+
+		private void Click_Test(object sender, RoutedEventArgs e)
+		{
+			debugTextBox.AppendText("Clicked\n");
 		}
 	}
 }

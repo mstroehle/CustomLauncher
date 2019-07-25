@@ -23,23 +23,15 @@
 
 			</ScrollViewer>
 		</DockPanel>
-		<RichTextBox x:Name="debugTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="384" Margin="533,48,0,0" VerticalAlignment="Top" Width="159">
+		<Button x:Name="ButtonAddProgramToList" Content="Button" Height="60" VerticalAlignment="Top" Grid.Row="1" Click="Button_Click"/>
+		<Viewbox Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="406,83,0,0" VerticalAlignment="Top" Width="100"/>
+		<RichTextBox x:Name="debugTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="558" Margin="647,83,0,0" VerticalAlignment="Top" Width="442">
 			<FlowDocument>
 				<Paragraph>
 					<Run Text="RichTextBox"/>
 				</Paragraph>
 			</FlowDocument>
 		</RichTextBox>
-		<Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="533,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-		<Button x:Name="ButtonAddProgramToList" Content="Button" Height="60" VerticalAlignment="Top" Grid.Row="1" Click="Button_Click"/>
-		<Viewbox Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="406,83,0,0" VerticalAlignment="Top" Width="100"/>
-		<Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="79" Height="25" Grid.Column="1" Margin="389,220,0,0"/>
-
-		<StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="303" Margin="547,496,0,0" VerticalAlignment="Top" Width="342">
-			<Viewbox HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="300">
-				<Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="403" Height="68"/>
-			</Viewbox>
-		</StackPanel>
 
 
 	</Grid>
