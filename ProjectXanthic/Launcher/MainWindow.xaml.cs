@@ -44,6 +44,8 @@ namespace Launcher
 		private void Click_Test(object sender, RoutedEventArgs e)
 		{
 			debugTextBox.AppendText("Clicked\n");
+
+			Background.DisplayImage.Source = new BitmapImage(new Uri("Img/DOTD.jpg", UriKind.Relative));
 		}
 	}
 }

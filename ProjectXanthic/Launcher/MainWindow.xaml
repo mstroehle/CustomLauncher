@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Launcher"
         mc:Ignorable="d"
         Title="Topaz Launcher" Width="1440" Height="900" MinHeight="600" MinWidth="1024" MaxHeight="900" MaxWidth="1440">
-	<Grid x:Name="MainGrid">
+	<Grid x:Name="MainGrid" Background="#00000000">
 
 		<Grid.RowDefinitions>
 			<RowDefinition MinHeight="40" Height="*"/>
@@ -17,22 +17,27 @@
 			<ColumnDefinition MinWidth="300" Width="auto"/>
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
-		<DockPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="809" LastChildFill="False" MinWidth="40" Width="300" Background="Aqua">
+
+		<Rectangle Grid.Row="1" Grid.Column="1" Fill="#FF5D5D76"/>
+		<Rectangle Grid.Row="0" Grid.Column="0" Fill="#FF5D5D76"/>
+		<Rectangle Grid.Row="0" Grid.Column="1" Fill="#FF5D5D76"/>
+
+		<DockPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="809" LastChildFill="False" MinWidth="40" Width="300">
 			<ScrollViewer Height="810" VerticalAlignment="Top" Width="340" CanContentScroll="True">
-				<StackPanel x:Name="StackPanelProgramList" HorizontalAlignment="Left" Height="809" VerticalAlignment="Top" Width="300" Background="GreenYellow"/>
+				<StackPanel x:Name="StackPanelProgramList" HorizontalAlignment="Left" Height="809" VerticalAlignment="Top" Width="300"/>
 
 			</ScrollViewer>
 		</DockPanel>
 		<Button x:Name="ButtonAddProgramToList" Content="Button" Height="60" VerticalAlignment="Top" Grid.Row="1" Click="Button_Click"/>
-		<Viewbox Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="406,83,0,0" VerticalAlignment="Top" Width="100"/>
-		<RichTextBox x:Name="debugTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="558" Margin="647,83,0,0" VerticalAlignment="Top" Width="442">
+
+		<RichTextBox x:Name="debugTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="51" Margin="288,0,0,0" VerticalAlignment="Top" Width="585" Grid.Row="1">
 			<FlowDocument>
 				<Paragraph>
 					<Run Text="RichTextBox"/>
 				</Paragraph>
 			</FlowDocument>
 		</RichTextBox>
-
-
+		<local:ProgramDisplay x:Name="Background" Grid.Column="1"/>
+		<local:LaunchButton Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,87"></local:LaunchButton>
 	</Grid>
 </Window>
