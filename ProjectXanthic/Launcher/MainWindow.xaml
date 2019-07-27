@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Launcher"
         mc:Ignorable="d"
+		Closing="Topaz_Closing"
         Title="Topaz Launcher" Width="1440" Height="900" MinHeight="600" MinWidth="1024" MaxHeight="900" MaxWidth="1440">
 	<Grid x:Name="MainGrid" Background="#00000000">
 
