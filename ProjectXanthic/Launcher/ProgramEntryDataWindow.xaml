@@ -1,0 +1,22 @@
+﻿<Window x:Class="Launcher.ProgramEntryDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Launcher"
+        mc:Ignorable="d"
+        Title="ProgramEntryDataWindow" Height="450" Width="294.823" ResizeMode="NoResize">
+	<Grid>
+		<TextBox x:Name="ProgramPathTextBox" HorizontalAlignment="Left" Height="23" Margin="20,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="ProgramNameTextBox" HorizontalAlignment="Left" Height="23" Margin="20,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		<TextBox x:Name="ImageBackgroundTextBox" HorizontalAlignment="Left" Height="23" Margin="20,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+		
+		<Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="108,382,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click"/>
+		<Button x:Name="ProgramSearchButton" Content="Search" HorizontalAlignment="Left" Margin="176,81,0,0" VerticalAlignment="Top" Width="75" Click="SearchForFile_Click"/>
+		<Button x:Name="ImageBackgroundSearchButton" Content="Search" HorizontalAlignment="Left" Margin="176,200,0,0" VerticalAlignment="Top" Width="75" Click="SearchForImage_Click"/>
+		<Button x:Name="ContinueButton" Content="Ok" HorizontalAlignment="Left" Margin="202,382,0,0" VerticalAlignment="Top" Width="75" Click="Continue_Click"/>
+		<Label x:Name="ProgramTextBox" Content="Program" HorizontalAlignment="Left" Margin="20,52,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="ImageTextBox" Content="Image" HorizontalAlignment="Left" Margin="20,171,0,0" VerticalAlignment="Top"/>
+
+	</Grid>
+</Window>

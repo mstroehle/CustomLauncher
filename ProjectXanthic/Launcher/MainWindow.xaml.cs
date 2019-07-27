@@ -37,20 +37,9 @@ namespace Launcher
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			for (int i = 0; i < 20; i++)
-			{
-				Button button = new Button();
-				button.Content = "Button " + i;
-
-				button.Width = 300;
-				button.Height = 89.88;
-				button.HorizontalAlignment = HorizontalAlignment.Left;
-
-				button.Name = "Button_" + i;
-				button.Click += new RoutedEventHandler(ChangeDisplay);
-
-				StackPanelProgramList.Children.Add(button);
-			}
+			ProgramEntryDataWindow popupWindow = new ProgramEntryDataWindow();
+			popupWindow.Ref = this;
+			popupWindow.Show();
 		}
 
 		private void Click_Test(object sender, RoutedEventArgs e)
@@ -121,6 +110,11 @@ namespace Launcher
 			}
 
 			sw.Close();
+		}
+
+		public void CreateNewButton(ProgramData data)
+		{
+			debugTextBox.AppendText(data.BackgroundImagePath + " : " + data.ProgramName + " : " + data.ProgramPath);
 		}
 	}
 }

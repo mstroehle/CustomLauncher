@@ -78,11 +78,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProgramEntryDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProgramData.cs" />
     <Compile Include="ProgramDisplay.xaml.cs">
       <DependentUpon>ProgramDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramEntryDataWindow.xaml.cs">
+      <DependentUpon>ProgramEntryDataWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
