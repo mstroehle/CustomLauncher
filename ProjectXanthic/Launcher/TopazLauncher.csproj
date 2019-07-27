@@ -80,6 +80,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProgramData.cs" />
     <Compile Include="ProgramDisplay.xaml.cs">
       <DependentUpon>ProgramDisplay.xaml</DependentUpon>
     </Compile>

@@ -20,22 +20,34 @@ namespace Launcher
     /// </summary>
     public partial class MainWindow : Window
     {
+		List<ProgramData> programDataList;
+
         public MainWindow()
         {
             InitializeComponent();
+
+			programDataList = new List<ProgramData>();
+
+			for (int i = 0; i < 20; i++)
+			{
+				ProgramData programData = new ProgramData("path " + i, "name " + i, "Img/DOTD.jpg");
+				programDataList.Add(programData);
+			}
         }
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			for (int i = 0; i < 30; i++)
+			for (int i = 0; i < 20; i++)
 			{
 				Button button = new Button();
+				button.Content = "Button " + i;
+
 				button.Width = 300;
 				button.Height = 89.88;
-				button.Content = "Button " + i;
 				button.HorizontalAlignment = HorizontalAlignment.Left;
 
-				button.Click += new RoutedEventHandler(Click_Test);
+				button.Name = "Button_" + i;
+				button.Click += new RoutedEventHandler(ChangeDisplay);
 
 				StackPanelProgramList.Children.Add(button);
 			}
@@ -46,6 +58,18 @@ namespace Launcher
 			debugTextBox.AppendText("Clicked\n");
 
 			Background.DisplayImage.Source = new BitmapImage(new Uri("Img/DOTD.jpg", UriKind.Relative));
+		}
+
+		private void ChangeDisplay(object obj, RoutedEventArgs e)
+		{
+			var foo = (Button)obj;
+
+			string[] split = foo.Name.Split('_');
+			int index = Int32.Parse(split[1]);
+
+			debugTextBox.AppendText("\nindex: " + programDataList[index].ProgramName);
+
+			Background.DisplayImage.Source = new BitmapImage(new Uri(programDataList[index].BackgroundImagePath, UriKind.Relative));
 		}
 	}
 }
