@@ -42,21 +42,21 @@ namespace Launcher
 			popupWindow.Show();
 		}
 
-		private void Click_Test(object sender, RoutedEventArgs e)
-		{
-			debugTextBox.AppendText("Clicked\n");
-
-			Background.DisplayImage.Source = new BitmapImage(new Uri("Img/DOTD.jpg", UriKind.Relative));
-		}
-
 		private void ChangeDisplay(object obj, RoutedEventArgs e)
 		{
-			var foo = (Button)obj;
+			Button clickedButton = (Button)obj;
 
-			string[] split = foo.Name.Split('_');
+			/*
+			 * Parse button name to get the index of its data
+			 * Button naming convention is Button_1, Button_2 ect
+			 */
+
+			string[] split = clickedButton.Name.Split('_');
 			int index = Int32.Parse(split[1]);
 
 			debugTextBox.AppendText("\nindex: " + programDataList[index].ProgramName);
+
+			ProgramLaunchButton.ApplicationPath = programDataList[index].ProgramPath;
 
 			Background.DisplayImage.Source = new BitmapImage(new Uri(programDataList[index].BackgroundImagePath, UriKind.Relative));
 		}
@@ -73,6 +73,9 @@ namespace Launcher
 				return;
 			}
 
+			// Check if the file contents are zero to prevent the program from crashing if it is zero
+			if (new FileInfo(ProgramDataFilePath).Length == 0) return;
+
 			string[] fileData = File.ReadAllLines(ProgramDataFilePath);
 
 			int i = 0;
@@ -85,7 +88,7 @@ namespace Launcher
 
 				Button button = new Button();
 				button.Name = "Button_" + i;
-				button.Content = "Button " + i;
+				button.Content = split[1];
 
 				button.Width = 300;
 				button.Height = 89.88;
@@ -114,7 +117,19 @@ namespace Launcher
 
 		public void CreateNewButton(ProgramData data)
 		{
-			debugTextBox.AppendText(data.BackgroundImagePath + " : " + data.ProgramName + " : " + data.ProgramPath);
+			programDataList.Add(data);
+
+			Button button = new Button();
+			button.Name = "Button_" + (programDataList.Count - 1);
+			button.Content = data.ProgramName;
+
+			button.Width = 300;
+			button.Height = 89.88;
+			button.HorizontalAlignment = HorizontalAlignment.Left;
+
+			button.Click += new RoutedEventHandler(ChangeDisplay);
+
+			StackPanelProgramList.Children.Add(button);
 		}
 	}
 }

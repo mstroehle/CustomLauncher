@@ -28,7 +28,7 @@ namespace Launcher
 			InitializeComponent();
 		}
 
-		public void LaunchApplication(object sender, RoutedEventArgs e)
+		public void LaunchApplication_Click(object sender, RoutedEventArgs e)
 		{
 			Process.Start(ApplicationPath);
 		}

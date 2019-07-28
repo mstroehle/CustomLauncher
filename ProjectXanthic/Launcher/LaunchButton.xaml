@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Launcher"
              mc:Ignorable="d" d:DesignWidth="220" Height="70" Width="220">
 	<Grid>
-		<Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="70"/>
+		<Button Content="Launch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="70" Click="LaunchApplication_Click"/>
 	</Grid>
 
 </UserControl>

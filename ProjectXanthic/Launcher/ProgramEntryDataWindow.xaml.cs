@@ -36,7 +36,7 @@ namespace Launcher
 			if (ofd.ShowDialog() == true)
 			{
 				ProgramPathTextBox.AppendText(ofd.FileName);
-				ProgramNameTextBox.AppendText(System.IO.Path.GetFileName(ofd.FileName));
+				ProgramNameTextBox.AppendText(System.IO.Path.GetFileNameWithoutExtension(ofd.FileName));
 			}
 		}
 
@@ -57,6 +57,11 @@ namespace Launcher
 
 		private void Continue_Click(object sender, RoutedEventArgs e)
 		{
+			// Check every box value is not empty
+			if (ProgramPathTextBox.Text == "") return;
+			if (ProgramNameTextBox.Text == "") return;
+			if (ImageBackgroundTextBox.Text == "") return;
+
 			string path = ProgramPathTextBox.Text;
 			string name = ProgramNameTextBox.Text;
 			string imagePath = ImageBackgroundTextBox.Text;
