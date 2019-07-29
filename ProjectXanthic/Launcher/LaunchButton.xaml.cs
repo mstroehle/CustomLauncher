@@ -30,7 +30,15 @@ namespace Launcher
 
 		public void LaunchApplication_Click(object sender, RoutedEventArgs e)
 		{
-			Process.Start(ApplicationPath);
+			try
+			{
+				Process.Start(ApplicationPath);
+			}
+			catch (Exception exc)
+			{
+				MessageBox.Show("Error: Unable to launch application");
+			}
+
 		}
 	}
 }

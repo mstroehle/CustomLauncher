@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Launcher"
         mc:Ignorable="d"
 		Closing="Topaz_Closing"
-        Title="Topaz Launcher" Width="1440" Height="900" MinHeight="600" MinWidth="1024" MaxHeight="900" MaxWidth="1440">
+        Title="Topaz Launcher" Width="1440" Height="900" MinHeight="600" MinWidth="1024" MaxHeight="900" MaxWidth="1440" WindowStartupLocation="CenterScreen">
 	<Grid x:Name="MainGrid" Background="#00000000">
 
 		<Grid.RowDefinitions>
@@ -29,16 +29,10 @@
 
 			</ScrollViewer>
 		</DockPanel>
-		<Button x:Name="ButtonAddProgramToList" Content="Button" Height="60" VerticalAlignment="Top" Grid.Row="1" Click="Button_Click"/>
-
-		<RichTextBox x:Name="debugTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="51" Margin="288,0,0,0" VerticalAlignment="Top" Width="585" Grid.Row="1">
-			<FlowDocument>
-				<Paragraph>
-					<Run Text="RichTextBox"/>
-				</Paragraph>
-			</FlowDocument>
-		</RichTextBox>
-		<local:ProgramDisplay x:Name="Background" Grid.Column="1"/>
+		<Button x:Name="ButtonAddProgramToList" Content="+" Height="60" VerticalAlignment="Top" Grid.Row="1" Click="Button_Click" Background="#FF393D3F" BorderThickness="0" FontSize="48"
+				Foreground="#FFACB6BB" Padding="1,1,1,5"/>
+		<local:ProgramDisplay x:Name="BackgroundDisplay" Grid.Column="1" FontWeight="Bold"/>
 		<local:LaunchButton x:Name="ProgramLaunchButton" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,87"></local:LaunchButton>
+		<Image x:Name="testImage" Grid.Column="1" HorizontalAlignment="Left" Height="809" Margin="5,0,0,0" VerticalAlignment="Top" Width="1127"/>
 	</Grid>
 </Window>

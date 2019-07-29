@@ -33,6 +33,21 @@ namespace Launcher
 			ProgramDataFilePath = "ProgramData.txt";
 
 			ReadInData();
+
+			// Switch to first default application if the prgram data list is greater than 0
+			if (programDataList.Count > 0)
+			{
+				// Set the buttons default launch path
+				ProgramLaunchButton.ApplicationPath = programDataList[0].ProgramPath;
+
+				// Switch the main background
+				BitmapImage bitmapImage = new BitmapImage();
+				bitmapImage.BeginInit();
+				bitmapImage.UriSource = new Uri(programDataList[0].BackgroundImagePath, UriKind.Absolute);
+				bitmapImage.EndInit();
+
+				BackgroundDisplay.DisplayImage.Source = bitmapImage;
+			}
         }
 
 		private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,11 +69,36 @@ namespace Launcher
 			string[] split = clickedButton.Name.Split('_');
 			int index = Int32.Parse(split[1]);
 
-			debugTextBox.AppendText("\nindex: " + programDataList[index].ProgramName);
-
 			ProgramLaunchButton.ApplicationPath = programDataList[index].ProgramPath;
 
-			Background.DisplayImage.Source = new BitmapImage(new Uri(programDataList[index].BackgroundImagePath, UriKind.Relative));
+			BitmapImage bitmapImage = new BitmapImage();
+			bitmapImage.BeginInit();
+			bitmapImage.UriSource = new Uri(programDataList[index].BackgroundImagePath, UriKind.Absolute);
+			bitmapImage.EndInit();
+
+			BackgroundDisplay.DisplayImage.Source = bitmapImage;
+		}
+
+		private Button CreateButton(string content, string name)
+		{
+			Button button = new Button();
+			button.Name = name;
+			button.Content = content;
+
+			button.Width = 300;
+			button.Height = 89.88;
+			button.HorizontalAlignment = HorizontalAlignment.Left;
+
+			button.Click += new RoutedEventHandler(ChangeDisplay);
+
+			BrushConverter bc = new BrushConverter();
+			button.Background = (Brush)bc.ConvertFrom("#FF393D3F");
+			button.Foreground = (Brush)bc.ConvertFrom("#FFACB6BB");
+
+			button.BorderThickness = new Thickness(0);
+			button.FontSize = 24;
+
+			return button;
 		}
 
 		private void ReadInData()
@@ -66,8 +106,6 @@ namespace Launcher
 			if (!File.Exists(ProgramDataFilePath))
 			{
 				FileStream fileStream = new FileStream(ProgramDataFilePath, FileMode.Create, FileAccess.ReadWrite);
-
-				debugTextBox.AppendText("Creating program data file\n");
 				fileStream.Close();
 
 				return;
@@ -86,15 +124,7 @@ namespace Launcher
 				ProgramData data = new ProgramData(split[0], split[1], split[2]);
 				programDataList.Add(data);
 
-				Button button = new Button();
-				button.Name = "Button_" + i;
-				button.Content = split[1];
-
-				button.Width = 300;
-				button.Height = 89.88;
-				button.HorizontalAlignment = HorizontalAlignment.Left;
-
-				button.Click += new RoutedEventHandler(ChangeDisplay);
+				Button button = CreateButton(split[1], "Button_" + i);
 
 				StackPanelProgramList.Children.Add(button);
 
@@ -115,19 +145,11 @@ namespace Launcher
 			sw.Close();
 		}
 
-		public void CreateNewButton(ProgramData data)
+		public void AddNewButton(ProgramData data)
 		{
 			programDataList.Add(data);
 
-			Button button = new Button();
-			button.Name = "Button_" + (programDataList.Count - 1);
-			button.Content = data.ProgramName;
-
-			button.Width = 300;
-			button.Height = 89.88;
-			button.HorizontalAlignment = HorizontalAlignment.Left;
-
-			button.Click += new RoutedEventHandler(ChangeDisplay);
+			Button button = CreateButton(data.ProgramName, "Button_" + (programDataList.Count - 1));
 
 			StackPanelProgramList.Children.Add(button);
 		}

@@ -8,7 +8,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-ProjectXanthic/Launcher/Img
+ProjectXanthic/Launcher/Images
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

@@ -66,7 +66,7 @@ namespace Launcher
 			string name = ProgramNameTextBox.Text;
 			string imagePath = ImageBackgroundTextBox.Text;
 
-			Ref.CreateNewButton(new ProgramData(path, name, imagePath));
+			Ref.AddNewButton(new ProgramData(path, name, imagePath));
 
 			this.Close();
 		}
